@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halo Toilets — Find Washrooms Across Canada</title>
+<meta name="description" content="Canada's most complete washroom finder. 50,000+ locations coast to coast. Free forever.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #59C3EF;
+    --blue-dark: #3AAEE0;
+    --blue-light: #98E4FF;
+    --blue-pale: #EBF8FF;
+    --navy: #0F2942;
+    --gray: #64748B;
+    --gray-light: #F8FAFC;
+    --border: #E2E8F0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    background: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--blue); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--blue-dark) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(152,228,255,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(89,195,239,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-pale);
+    border: 1px solid rgba(89,195,239,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue);
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+
+  /* ── HERO VISUAL ── */
+  .hero-visual {
+    position: relative;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .phone-mockup {
+    background: linear-gradient(135deg, #98E4FF, #59C3EF, #3AAEE0);
+    border-radius: 40px;
+    padding: 3px;
+    box-shadow: 0 40px 80px rgba(89,195,239,0.3), 0 20px 40px rgba(15,41,66,0.15);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .phone-inner {
+    background: white;
+    border-radius: 38px;
+    overflow: hidden;
+    aspect-ratio: 9/19;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-status {
+    background: linear-gradient(135deg, #98E4FF, #59C3EF);
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px 12px;
+  }
+
+  .phone-status-text {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .phone-map {
+    flex: 1;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(89,195,239,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(89,195,239,0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .map-pin {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: var(--blue);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 12px rgba(89,195,239,0.4);
+  }
+
+  .map-pin::after {
+    content: '🚽';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    font-size: 14px;
+  }
+
+  .map-pin-1 { top: 20%; left: 30%; }
+  .map-pin-2 { top: 40%; left: 60%; background: var(--blue-dark); }
+  .map-pin-3 { top: 65%; left: 25%; }
+  .map-pin-4 { top: 55%; left: 75%; background: var(--navy); }
+
+  .phone-list {
+    background: linear-gradient(180deg, #7DD4F5, #3AAEE0);
+    height: 160px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .list-item {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .list-dot {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .list-lines { flex: 1; }
+
+  .list-line {
+    height: 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  .list-line.short { width: 60%; }
+
+  /* Floating stats */
+  .stat-bubble {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .stat-bubble-1 {
+    top: 10%;
+    right: -20px;
+    animation-delay: 0s;
+  }
+
+  .stat-bubble-2 {
+    bottom: 15%;
+    left: -20px;
+    animation-delay: 1.5s;
+  }
+
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .stat-icon { font-size: 24px; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--navy);
+    padding: 40px;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+
+  .stat-item .number {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--blue-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .stat-item .label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: 100px 40px;
+    background: white;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--gray);
+    font-weight: 300;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .features-inner { max-width: 1100px; margin: 0 auto; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--gray-light);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(89,195,239,0.15);
+  }
+
+  .feature-emoji {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .feature-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── MISSION ── */
+  .mission {
+    padding: 100px 40px;
+    background: var(--blue-pale);
+    border-top: 1px solid rgba(89,195,239,0.2);
+    border-bottom: 1px solid rgba(89,195,239,0.2);
+  }
+
+  .mission-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .mission-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(89,195,239,0.2);
+    box-shadow: 0 2px 12px rgba(89,195,239,0.08);
+  }
+
+  .mission-stat-icon { font-size: 28px; }
+
+  .mission-stat-text strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .mission-stat-text span {
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  /* ── DOWNLOAD ── */
+  .download {
+    padding: 100px 40px;
+    text-align: center;
+    background: white;
+  }
+
+  .download-inner { max-width: 600px; margin: 0 auto; }
+
+  .download h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .download h2 em { color: var(--blue); font-style: italic; }
+
+  .download p {
+    font-size: 17px;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .download-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--blue); }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--blue); }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+    .phone-mockup { max-width: 200px; }
+    .stat-bubble { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .features { padding: 60px 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .mission { padding: 60px 20px; }
+    .mission-inner { grid-template-columns: 1fr; gap: 40px; }
+    .download { padding: 60px 20px; }
+    footer { padding: 40px 20px; }
+  }
+  .nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { 
+  background: var(--blue-dark) !important; 
+  color: white !important; 
+}
+
+.download-badge {
+  display: inline-block;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.download-badge:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+  <img src="finallogotrans.png" alt="Halo Toilets" height="72" style="margin-right: 6px;">
+  Halo <span>Toilets</span>
+</a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#download" class="nav-cta">Download Free</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🇨🇦 Built for Canada</div>
+      <h1>Find a washroom, <em>anywhere</em> in Canada.</h1>
+      <p>50,000+ locations from coast to coast to coast. Free forever. Whether you're managing Crohn's, travelling with kids, or just caught off guard — we've got you covered.</p>
+      <div class="hero-buttons">
+  <a href="#download" class="download-badge">
+    <img src="badge-download-on-the-app-store.svg" alt="Download on App Store" height="54">
+  </a>
+  <a href="#download" class="download-badge">
+    <img src="en_badge_web_generic.png" alt="Get it on Google Play" height="54">
+  </a>
+</div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="phone-inner" style="overflow: hidden; border-radius: 38px;">
+  <img src="appshot.png" alt="Halo Toilets App" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+          
+           
+    
+      <div class="stat-bubble stat-bubble-1">
+        <span class="stat-icon">📍</span>
+        <div>
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Locations<br>Canada-wide</div>
+        </div>
+      </div>
+      <div class="stat-bubble stat-bubble-2">
+        <span class="stat-icon">♿</span>
+        <div>
+          <div class="stat-number">Free</div>
+          <div class="stat-label">Always &<br>Forever</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="number">50,000+</span>
+      <span class="label">Locations nationwide</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">13</span>
+      <span class="label">Provinces & territories</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">100%</span>
+      <span class="label">Canadian coverage</span>
+    </div>
+    <div class="stat-item">
+      <span class="number">Free</span>
+      <span class="label">No ads, no cost</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <span class="section-label">What we offer</span>
+    <h2 class="section-title">Everything you need,<br>right when you need it.</h2>
+    <p class="section-sub">No sign-up. No subscription. Just open the app and find the nearest washroom in seconds.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-emoji">🗺️</span>
+        <div class="feature-title">Instant Map View</div>
+        <p class="feature-desc">Open the app and your nearest washrooms appear instantly on the map. Updates as you move.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">♿</span>
+        <div class="feature-title">Accessibility Info</div>
+        <p class="feature-desc">Filter by wheelchair accessible locations. Know before you go — no surprises.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🕐</span>
+        <div class="feature-title">Hours & Details</div>
+        <p class="feature-desc">Check hours, read notes, and get one-tap directions to any location.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🔍</span>
+        <div class="feature-title">Smart Filters</div>
+        <p class="feature-desc">Filter by type — cafes, restaurants, gas stations, public washrooms, healthcare and more.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🚩</span>
+        <div class="feature-title">Report Problems</div>
+        <p class="feature-desc">Something wrong? Report it in seconds and help keep the community's data accurate.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-emoji">🇨🇦</span>
+        <div class="feature-title">Coast to Coast</div>
+        <p class="feature-desc">From Vancouver to Iqaluit — every province and territory covered. Built only for Canada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <div>
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title">Built for every Canadian.</h2>
+      <p class="section-sub" style="margin-bottom: 0;">For the 1 in 150 Canadians living with Crohn's disease or ulcerative colitis, washroom access isn't a convenience — it's a lifeline. Halo Toilets was built with the IBD community in mind, and every Canadian who deserves to explore their country with confidence and dignity.</p>
+    </div>
+    <div>
+      <div class="mission-stat">
+        <span class="mission-stat-icon">💙</span>
+        <div class="mission-stat-text">
+          <strong>1 in 150 Canadians</strong>
+          <span>Live with Crohn's disease or ulcerative colitis</span>
+        </div>
+      </div>
+      <div class="mission-stat">
+        <span class="mission-stat-icon">🆓</span>
+        <div class="mission-stat-text">
+          <strong>Free, always</strong>
+          <span>Because access to washrooms is a basic human need</span>
+        </div>
+      </div>
+      <div class="mission-stat">
+        <span class="mission-stat-icon">♿</span>
+        <div class="mission-stat-text">
+          <strong>Accessibility first</strong>
+          <span>Filter for wheelchair accessible locations instantly</span>
+        </div>
+      </div>
+      <div class="mission-stat">
+        <span class="mission-stat-icon">🇨🇦</span>
+        <div class="mission-stat-text">
+          <strong>Canada only</strong>
+          <span>Focused entirely on the best Canadian coverage possible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download" id="download">
+  <div class="download-inner">
+    <h2>Download <em>free</em> today.</h2>
+    <p>Available on iOS and Android. No account required. Just open and find the nearest washroom — anywhere in Canada.</p>
+    <div class="download-buttons">
+  <a href="#" class="download-badge">
+    <img src="badge-download-on-the-app-store.svg" alt="Download on App Store" height="54">
+  </a>
+  <a href="#" class="download-badge">
+    <img src="en_badge_web_generic.png" alt="Get it on Google Play" height="54">
+  </a>
+</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
+  <img src="finallogotrans.png" alt="Halo Toilets" height="32" style="filter: brightness(0) invert(1);">
+  <span style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: white;">Halo <span style="color: var(--blue);">Toilets</span></span>
+</div>
+  <div class="footer-links">
+    <a href="https://chad2922.github.io/halo-toilets-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://chad2922.github.io/halo-toilets-legal/terms-of-service.html">Terms of Service</a>
+    <a href="mailto:halotoilets@gmail.com">Contact</a>
+  </div>
+  <p>© 2026 Halo Toilets. Built with 💙 for Canada.</p>
+</footer>
+
+</body>
+</html>
