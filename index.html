@@ -570,9 +570,9 @@
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 20px 60px; }
+    .hero { padding: 120px 20px 60px; }
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-visual { order: -1; }
+    .hero-visual { order: 1; }
     .phone-mockup { max-width: 200px; }
     .stat-bubble { display: none; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -606,6 +606,55 @@
   transform: translateY(-2px);
   opacity: 0.9;
 }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--navy);
+  padding: 4px 8px;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 99;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.mobile-menu a {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .nav-links { display: none; }
+}
 </style>
 </head>
 <body>
@@ -621,6 +670,13 @@
     <li><a href="#mission">Mission</a></li>
     <li><a href="#download" class="nav-cta">Download Free</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="#mission" onclick="toggleMenu()">Mission</a>
+  <a href="#download" onclick="toggleMenu()">Download Free</a>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -788,7 +844,7 @@
 <!-- FOOTER -->
 <footer>
   <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
-  <img src="finallogotrans.png" alt="Halo Toilets" height="32" style="filter: brightness(0) invert(1);">
+  <img src="finallogotrans.png" alt="Halo Toilets" height="32" style="margin-bottom: 16px;">
   <span style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: white;">Halo <span style="color: var(--blue);">Toilets</span></span>
 </div>
   <div class="footer-links">
@@ -798,6 +854,14 @@
   </div>
   <p>© 2026 Halo Toilets. Built with 💙 for Canada.</p>
 </footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+    const btn = document.getElementById('hamburger');
+    btn.textContent = menu.classList.contains('open') ? '✕' : '☰';
+  }
+</script>
 
 </body>
 </html>
