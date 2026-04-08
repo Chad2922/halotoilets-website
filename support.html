@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Halo Toilets</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #59C3EF;
+    --blue-dark: #3AAEE0;
+    --blue-pale: #EBF8FF;
+    --navy: #0F2942;
+    --gray: #64748B;
+    --border: #E2E8F0;
+    --gray-light: #F8FAFC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: white; line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--blue); }
+  .nav-back { font-size: 14px; font-weight: 500; color: var(--gray); text-decoration: none; }
+  .nav-back:hover { color: var(--navy); }
+  .hero { padding: 140px 40px 80px; text-align: center; background: var(--blue-pale); border-bottom: 1px solid rgba(89,195,239,0.2); }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--navy); margin-bottom: 16px; }
+  .hero h1 em { color: var(--blue); font-style: italic; }
+  .hero p { font-size: 18px; color: var(--gray); font-weight: 300; max-width: 500px; margin: 0 auto; }
+  .content { max-width: 800px; margin: 0 auto; padding: 80px 40px; }
+  .contact-card { background: var(--navy); border-radius: 24px; padding: 48px; text-align: center; margin-bottom: 48px; }
+  .contact-card h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 900; color: white; margin-bottom: 12px; }
+  .contact-card p { font-size: 16px; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 28px; }
+  .email-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: white; padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+  .email-btn:hover { transform: translateY(-2px); background: var(--blue-dark); }
+  .response-time { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border-radius: 100px; padding: 8px 16px; font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 20px; }
+  .faq-section h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 900; color: var(--navy); margin-bottom: 24px; }
+  .faq-item { background: var(--gray-light); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+  .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .faq-item p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.6; }
+  .faq-icon { width: 28px; height: 28px; background: var(--blue-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  footer { background: var(--navy); padding: 40px; text-align: center; }
+  .footer-logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 16px; }
+  .footer-logo span { color: var(--blue); }
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-links a:hover { color: var(--blue); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  @media (max-width: 768px) { nav { padding: 16px 20px; } .hero { padding: 100px 20px 60px; } .content { padding: 40px 20px; } .contact-card { padding: 32px 24px; } footer { padding: 40px 20px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="finallogotrans.png" alt="Halo Toilets" height="72" style="margin-right: 6px;">
+    Halo <span>Toilets</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <h1>We're here to <em>help.</em></h1>
+  <p>Have a question, found a bug, or want to share feedback? We'd love to hear from you.</p>
+</div>
+
+<div class="content">
+  <div class="contact-card">
+    <h2>Contact Support</h2>
+    <p>Our team typically responds within 24-48 hours. Whether it's a bug report, feedback, or a general question — just send us an email!</p>
+    <a href="mailto:halotoilets@gmail.com" class="email-btn">✉️ halotoilets@gmail.com</a>
+    <div><span class="response-time">⏱ Typical response time: 24–48 hours</span></div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3><span class="faq-icon">🆓</span>Is Halo Toilets free?</h3>
+      <p>Yes! Halo Toilets is completely free to download and use. No subscriptions, no hidden fees.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">📍</span>Why can't I find washrooms in my area?</h3>
+      <p>Our database covers 50,000+ locations across Canada but some areas may have limited data. You can report missing locations by emailing us and we'll add them in a future update.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">🗺️</span>How does the location search work?</h3>
+      <p>Halo Toilets uses your device's GPS to find nearby washrooms within a 10km radius. Pan the map to search any area across Canada.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">♿</span>How do I find accessible washrooms?</h3>
+      <p>Tap the filter icon in the search bar and toggle "Accessible only" — the map and list will update to show only wheelchair accessible locations.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">🚩</span>How do I report incorrect information?</h3>
+      <p>Tap any location to open the detail sheet, then tap "Report a problem" at the bottom. Select the issue type and submit — our team reviews all reports.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">🔒</span>What data does Halo Toilets collect?</h3>
+      <p>We only collect your location to show nearby washrooms. We do not collect personal information or share your data with third parties. See our <a href="privacy-policy.html" style="color: var(--blue);">Privacy Policy</a> for full details.</p>
+    </div>
+    <div class="faq-item">
+      <h3><span class="faq-icon">🚀</span>What's coming in V2?</h3>
+      <p>We're working on user accounts, the ability to submit new locations, star ratings, photos, verified badges, community reports and more. Stay tuned!</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="finallogotrans.png" alt="Halo Toilets" height="40" style="margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto;">
+    Halo <span>Toilets</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="mailto:halotoilets@gmail.com">Contact</a>
+  </div>
+  <p>© 2026 Halo Toilets. Built with 💙 for Canada.</p>
+</footer>
+
+</body>
+</html>
