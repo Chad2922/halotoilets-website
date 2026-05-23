@@ -77,6 +77,12 @@
     transition: opacity 0.2s;
   }
   .submit-btn:hover { opacity: 0.9; }
+  .benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .benefit-card { background: var(--gray-light); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .benefit-icon { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+  .benefit-card h3 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .benefit-card p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.7; margin: 0; }
+  @media (max-width: 600px) { .benefit-grid { grid-template-columns: 1fr; } }
   .contact-box { background: var(--blue-pale); border: 1px solid rgba(89,195,239,0.3); border-radius: 16px; padding: 24px; margin-top: 8px; }
   .contact-box a { color: var(--blue-dark); font-weight: 600; text-decoration: none; }
   footer { background: var(--navy); padding: 40px; text-align: center; }
@@ -115,6 +121,34 @@
 
   <div class="info-box">
     <p>Halo Toilets aggregates publicly accessible washroom data from open government datasets, OpenStreetMap, and community contributions. We respect the rights of business owners and will review all removal requests. We aim to respond within 5 business days.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why Businesses Stay Listed</h2>
+    <p>Before submitting, here are a few reasons other business owners choose to keep their listing active:</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">01</div>
+        <h3>Free foot traffic</h3>
+        <p>People actively searching for a nearby washroom are already on your street. Your listing puts you on their radar at exactly the right moment.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">02</div>
+        <h3>Community goodwill</h3>
+        <p>Being listed signals that your business is welcoming and accessible. That reputation matters to customers — especially families, seniors, and people with medical needs.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">03</div>
+        <h3>Accessibility visibility</h3>
+        <p>Canadians with Crohn's disease, IBD, and other conditions rely on apps like this daily. Your listing can make a real difference to someone in a difficult moment.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">04</div>
+        <h3>Zero cost, zero effort</h3>
+        <p>No signup, no maintenance, no fees — ever. Your listing just works in the background, sending people your way for free.</p>
+      </div>
+    </div>
+    <p style="margin-top: 20px; font-size: 14px;">If your concern is incorrect information, we can update your listing instead. Email us at <a href="mailto:halotoilets@gmail.com" style="color: var(--blue-dark); font-weight: 500;">halotoilets@gmail.com</a> and we'll fix it.</p>
   </div>
 
   <div class="section">
