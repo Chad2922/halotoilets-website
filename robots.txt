@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://halotoilets.ca/sitemap.xml
+Sitemap: https://halotoilets.ca/washrooms/sitemap-washrooms.xml
