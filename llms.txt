@@ -1,0 +1,44 @@
+# Halo Toilets
+
+> Canada's most complete washroom finder — 50,000+ public and semi-public washroom locations across Canada, free forever.
+
+Halo Toilets is a Canadian mobile app (iOS and Android) that helps people find nearby public washrooms. The database contains over 50,000 verified washroom locations across Canada with details on accessibility, hours, location type, and more. The app is free with no ads and no account required.
+
+## App
+
+- [Download on App Store](https://apps.apple.com/ca/app/halo-toilets/id6761644414): Free iOS app for finding washrooms near you in Canada
+- [Get it on Google Play](https://play.google.com/store/apps/details?id=com.mycompany.fmtv1): Free Android app for finding washrooms near you in Canada
+
+## Website
+
+- [Home](https://halotoilets.ca/): App download links, feature overview, and database stats
+- [Support](https://halotoilets.ca/support.html): User support and frequently asked questions
+- [Privacy Policy](https://halotoilets.ca/privacy-policy.html): How user data is handled — no personal data collected
+- [Terms of Service](https://halotoilets.ca/terms-of-service.html): Terms of use for the app and website
+- [Request Location Removal](https://halotoilets.ca/takedown.html): Business owners and facility managers can request removal of their listing
+
+## Washroom Directory
+
+Individual washroom pages are available at https://halotoilets.ca/washrooms/[city]/[name-slug]/
+
+Each page includes: facility name, full address, city, province, coordinates, accessibility information, hours of operation, washroom type, and a map link.
+
+## Data
+
+Halo Toilets aggregates washroom location data from multiple sources:
+
+- Google Places API (commercial establishments with public washroom access)
+- OpenStreetMap community data
+- Open government datasets: City of Vancouver, City of Toronto, City of Calgary, City of Edmonton
+
+Data fields: name, address, latitude, longitude, city, province, accessibility (wheelchair accessible), hours of operation, washroom type (public park, mall, restaurant, cafe, library, transit, other), verified status, and source.
+
+## Coverage
+
+Primary cities: Vancouver, Surrey, Burnaby, Toronto, Brampton, Mississauga, Calgary, Edmonton, Ottawa, Montreal, Halifax, Victoria, Kelowna, Winnipeg, Quebec City, Banff, Whistler, Niagara Falls.
+
+## Contact
+
+- Email: halotoilets@gmail.com
+- Website: https://halotoilets.ca
+- Location removal requests: https://halotoilets.ca/takedown.html

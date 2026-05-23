@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Location Removal — Halo Toilets</title>
+<meta name="description" content="Business owners and facility managers can request removal of a washroom listing from the Halo Toilets app and database.">
+<link rel="canonical" href="https://halotoilets.ca/takedown.html">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #59C3EF;
+    --blue-dark: #3AAEE0;
+    --blue-pale: #EBF8FF;
+    --navy: #0F2942;
+    --gray: #64748B;
+    --border: #E2E8F0;
+    --gray-light: #F8FAFC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: white; line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700;
+    color: var(--navy); text-decoration: none;
+  }
+  .nav-logo span { color: var(--blue); }
+  .nav-back { font-size: 14px; font-weight: 500; color: var(--gray); text-decoration: none; }
+  .nav-back:hover { color: var(--navy); }
+  .hero { padding: 140px 40px 60px; background: var(--blue-pale); border-bottom: 1px solid rgba(89,195,239,0.2); }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: var(--navy); margin-bottom: 12px; }
+  .hero p { font-size: 15px; color: var(--gray); font-weight: 300; }
+  .content { max-width: 800px; margin: 0 auto; padding: 60px 40px; }
+  .section { margin-bottom: 40px; }
+  .section h2 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--blue-pale); }
+  .section p { font-size: 15px; color: var(--gray); font-weight: 300; line-height: 1.8; margin-bottom: 12px; }
+  .section ul { list-style: none; margin: 8px 0; }
+  .section ul li { font-size: 15px; color: var(--gray); font-weight: 300; padding: 6px 0 6px 20px; position: relative; line-height: 1.6; }
+  .section ul li::before { content: '•'; color: var(--blue); position: absolute; left: 0; font-weight: 700; }
+  .info-box { background: var(--blue-pale); border: 1px solid rgba(89,195,239,0.3); border-radius: 16px; padding: 24px; margin-bottom: 32px; }
+  .info-box p { font-size: 14px; color: var(--gray); font-weight: 300; line-height: 1.8; margin: 0; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 6px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 12px 16px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300;
+    color: var(--navy); background: white;
+    border: 1px solid var(--border); border-radius: 8px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--blue); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center;
+  }
+  .submit-btn {
+    display: inline-block; padding: 14px 32px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: white; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .submit-btn:hover { opacity: 0.9; }
+  .contact-box { background: var(--blue-pale); border: 1px solid rgba(89,195,239,0.3); border-radius: 16px; padding: 24px; margin-top: 8px; }
+  .contact-box a { color: var(--blue-dark); font-weight: 600; text-decoration: none; }
+  footer { background: var(--navy); padding: 40px; text-align: center; }
+  .footer-logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 16px; }
+  .footer-logo span { color: var(--blue); }
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-links a:hover { color: var(--blue); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 100px 20px 40px; }
+    .content { padding: 40px 20px; }
+    footer { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="finallogotrans.png" alt="Halo Toilets" height="72" style="margin-right: 6px;">
+    Halo <span>Toilets</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Request Location Removal</h1>
+    <p>Business owners and facility managers can request removal of a listing from the Halo Toilets app and database.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="info-box">
+    <p>Halo Toilets aggregates publicly accessible washroom data from open government datasets, OpenStreetMap, and community contributions. We respect the rights of business owners and will review all removal requests. We aim to respond within 5 business days.</p>
+  </div>
+
+  <div class="section">
+    <h2>Removal Request Form</h2>
+    <form id="takedownForm">
+      <div class="form-group">
+        <label for="businessName">Business or facility name *</label>
+        <input type="text" id="businessName" name="businessName" placeholder="e.g. Tim Hortons — 123 King St" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Full address of the listing *</label>
+        <input type="text" id="address" name="address" placeholder="e.g. 123 King St W, Toronto, ON M5H 1A1" required>
+      </div>
+      <div class="form-group">
+        <label for="yourName">Your name *</label>
+        <input type="text" id="yourName" name="yourName" placeholder="First and last name" required>
+      </div>
+      <div class="form-group">
+        <label for="role">Your role *</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select your role</option>
+          <option value="Business owner">Business owner</option>
+          <option value="Property manager">Property manager</option>
+          <option value="Authorized representative">Authorized representative</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reason">Reason for removal *</label>
+        <textarea id="reason" name="reason" placeholder="Please explain why you are requesting removal of this listing (e.g. private facility, permanently closed, incorrect data)." required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="email">Your contact email *</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <button type="submit" class="submit-btn">Submit Request</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>What Happens Next</h2>
+    <ul>
+      <li>We will review your request within 5 business days</li>
+      <li>We may follow up to verify ownership or authorization</li>
+      <li>If approved, the listing will be removed from the app and our database</li>
+      <li>You will receive confirmation by email once the removal is complete</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Prefer to Email Directly?</h2>
+    <p>Send your removal request directly to us — please include the business name, full address, and your relationship to the business.</p>
+    <div class="contact-box">
+      <p><a href="mailto:halotoilets@gmail.com">halotoilets@gmail.com</a></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="finallogotrans.png" alt="Halo Toilets" height="40" style="margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto;">
+    Halo <span>Toilets</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="takedown.html">Request Removal</a>
+    <a href="mailto:halotoilets@gmail.com">Contact</a>
+  </div>
+  <p>&copy; 2026 Halo Toilets. Built with care for Canada.</p>
+</footer>
+
+<script>
+document.getElementById('takedownForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var f = this;
+  var body = [
+    'Halo Toilets — Location Removal Request',
+    '',
+    'Business name: ' + f.businessName.value,
+    'Address: ' + f.address.value,
+    'Requester name: ' + f.yourName.value,
+    'Role: ' + f.role.value,
+    'Contact email: ' + f.email.value,
+    '',
+    'Reason for removal:',
+    f.reason.value
+  ].join('\n');
+  var subject = encodeURIComponent('Location Removal Request — ' + f.businessName.value);
+  var bodyEncoded = encodeURIComponent(body);
+  window.location.href = 'mailto:halotoilets@gmail.com?subject=' + subject + '&body=' + bodyEncoded;
+});
+</script>
+
+</body>
+</html>
