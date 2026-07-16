@@ -2,10 +2,25 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://apps.apple.com/ca/app/halo-toilets/id6761644414">
-  <title>Halo Toilets — App Store</title>
+  <title>Halo Toilets — Download</title>
+  <script>
+    var ua = navigator.userAgent || navigator.vendor || window.opera || "";
+    var dest;
+    if (/android/i.test(ua)) {
+      dest = "https://play.google.com/store/apps/details?id=com.mycompany.fmtv1";
+    } else if (/iPad|iPhone|iPod/.test(ua)) {
+      dest = "https://apps.apple.com/ca/app/halo-toilets/id6761644414";
+    } else {
+      dest = "https://halotoilets.ca/#download";
+    }
+    window.location.href = dest;
+  </script>
 </head>
 <body>
-  <script>window.location.href = "https://apps.apple.com/ca/app/halo-toilets/id6761644414";</script>
+  <p>Redirecting to Halo Toilets&hellip; if nothing happens, pick your platform:</p>
+  <p>
+    <a href="https://apps.apple.com/ca/app/halo-toilets/id6761644414">Download on the App Store</a><br>
+    <a href="https://play.google.com/store/apps/details?id=com.mycompany.fmtv1">Get it on Google Play</a>
+  </p>
 </body>
 </html>
