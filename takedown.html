@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request Location Removal — Halo Toilets</title>
+<title>Request Location Removal | Halo Toilets</title>
 <meta name="description" content="Business owners and facility managers can request removal of a washroom listing from the Halo Toilets app and database.">
 <link rel="canonical" href="https://halotoilets.ca/takedown.html">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -135,7 +135,7 @@
       <div class="benefit-card">
         <div class="benefit-icon">02</div>
         <h3>Community goodwill</h3>
-        <p>Being listed signals that your business is welcoming and accessible. That reputation matters to customers — especially families, seniors, and people with medical needs.</p>
+        <p>Being listed signals that your business is welcoming and accessible. That reputation matters to customers, especially families, seniors, and people with medical needs.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">03</div>
@@ -145,7 +145,7 @@
       <div class="benefit-card">
         <div class="benefit-icon">04</div>
         <h3>Zero cost, zero effort</h3>
-        <p>No signup, no maintenance, no fees — ever. Your listing just works in the background, sending people your way for free.</p>
+        <p>No signup, no maintenance, no fees, ever. Your listing just works in the background, sending people your way for free.</p>
       </div>
     </div>
     <p style="margin-top: 20px; font-size: 14px;">If your concern is incorrect information, we can update your listing instead. Email us at <a href="mailto:halotoilets@gmail.com" style="color: var(--blue-dark); font-weight: 500;">halotoilets@gmail.com</a> and we'll fix it.</p>
@@ -156,7 +156,7 @@
     <form id="takedownForm">
       <div class="form-group">
         <label for="businessName">Business or facility name *</label>
-        <input type="text" id="businessName" name="businessName" placeholder="e.g. Tim Hortons — 123 King St" required>
+        <input type="text" id="businessName" name="businessName" placeholder="e.g. Tim Hortons, 123 King St" required>
       </div>
       <div class="form-group">
         <label for="address">Full address of the listing *</label>
@@ -200,7 +200,7 @@
 
   <div class="section">
     <h2>Prefer to Email Directly?</h2>
-    <p>Send your removal request directly to us — please include the business name, full address, and your relationship to the business.</p>
+    <p>Send your removal request directly to us. Please include the business name, full address, and your relationship to the business.</p>
     <div class="contact-box">
       <p><a href="mailto:halotoilets@gmail.com">halotoilets@gmail.com</a></p>
     </div>
@@ -229,7 +229,7 @@ document.getElementById('takedownForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var f = this;
   var body = [
-    'Halo Toilets — Location Removal Request',
+    'Halo Toilets: Location Removal Request',
     '',
     'Business name: ' + f.businessName.value,
     'Address: ' + f.address.value,
@@ -240,7 +240,7 @@ document.getElementById('takedownForm').addEventListener('submit', function(e) {
     'Reason for removal:',
     f.reason.value
   ].join('\n');
-  var subject = encodeURIComponent('Location Removal Request — ' + f.businessName.value);
+  var subject = encodeURIComponent('Location Removal Request: ' + f.businessName.value);
   var bodyEncoded = encodeURIComponent(body);
   window.location.href = 'mailto:halotoilets@gmail.com?subject=' + subject + '&body=' + bodyEncoded;
 });
